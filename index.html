@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Como está sua Matemática Hoje?</title>
+    <link rel="shortcut icon" href="./assets/bubble-math.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Ruslan+Display&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/space.css" />
+    <link rel="stylesheet" href="/css/modal.css" />
+    <link rel="stylesheet" href="/css/animate.css" />
+    <link rel="stylesheet" href="/css/mobile-styles.css" />
+    <link rel="stylesheet" href="/css/acordeon.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="menu">
+        <div class="logo">
+          <img src="./assets/bubble-math.png" alt="logo">
+          <h2>math bubble</h2>
+        </div>
+        <div class="menu-score">
+          <h2 style="color: #9e49c5">Acertos</h2>
+          <h2 id="hits">0</h2>
+        </div>
+        <div class="menu-lives"></div>
+      </header>
+      <div class="game">
+        <div id="game-screen">
+          <div class="bubble">
+            <img src="./assets/bubble.svg" alt="bubble" />
+            <span id="question"></span>
+          </div>
+        </div>
+
+        <div id="user-input">
+          <h2>
+            Para resgatar o balão resolva a operação antes que ele exploda!
+          </h2>
+          <label for="answer">Sua Resposta:</label>
+          <input type="text" id="answer" name="answer" />
+
+          <div class="keyboard">
+            <button class="key">1</button>
+            <button class="key">2</button>
+            <button class="key">3</button>
+            <button class="key">4</button>
+            <button class="key">5</button>
+            <button class="key">6</button>
+            <button class="key">7</button>
+            <button class="key">8</button>
+            <button class="key">9</button>
+            <button class="clean">X</button>
+            <button class="key">0</button>
+            <button class="enter" id="checkAnswer">Enter</button>
+          </div>
+          <div class="speed-slider">
+            <span>Velocidade</span>
+            <div>
+              <span>-</span>
+              <input
+                id="speed"
+                type="range"
+                min="1"
+                max="10"
+                value="2"
+                step="1"
+              />
+              <span>+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comets">
+        <img src="./assets/comet-02.png" style="--delay: 8s" alt="cometa" />
+        <img
+          src="./assets/ovni.png"
+          style="--delay: 5s"
+          alt="Objeto voador não identificado"
+        />
+        <img src="./assets/comet-01.png" style="--delay: 0s" alt="cometa" />
+        <img src="./assets/comet-03.png" style="--delay: 3s" alt="cometa" />
+      </div>
+
+      <div class="modal visible" id="start-modal">
+        <div class="modal-content">
+          <h2>math bubble</h2>
+          <p>
+            Este é um jogo educativo que desafia seus conhecimentos matemáticos
+            enquanto você se diverte resgatando bolhas.
+          </p>
+
+          <button id="start">Start</button>
+
+          <section class="acordeon">
+            <button class="trigger" type="button">Sobre</button>
+
+            <ul class="content">
+              <li>
+                <strong>Objetivo:</strong>
+                <p>
+                  Uma bolha contendo uma operação matemática se moverá do fundo
+                  para o topo da tela. Sua missão é resolver a operação antes
+                  que a bolha alcance o topo ou exploda devido a respostas
+                  incorretas.
+                </p>
+              </li>
+              <li>
+                <strong>Resolvendo a Operação:</strong>
+                <p>
+                  Utilize o teclado virtual na tela para inserir sua resposta.
+                  Clique nos botões numéricos para compor a resposta desejada. O
+                  botão "X" permite apagar a resposta se necessário. Pressionar
+                  "Enter" após inserir sua resposta verifica se está correta.
+                </p>
+              </li>
+              <li>
+                <strong>Pontuação e Vidas:</strong>
+                <p>
+                  Cada resposta correta adiciona pontos à sua pontuação total,
+                  exibida no canto superior direito. Respostas incorretas
+                  resultam na perda de uma vida. O número de vidas restantes é
+                  exibido no canto superior esquerdo. Se perder todas as 5
+                  vidas, o jogo termina.
+                </p>
+              </li>
+              <li>
+                <strong>Velocidade do Jogo:</strong>
+                <p>
+                  Você pode ajustar a velocidade da bolha usando o controle
+                  deslizante na parte inferior da tela.
+                </p>
+              </li>
+              <li>
+                <strong>Próxima Rodada:</strong>
+                <p>
+                  Após cada rodada, a tela será limpa, e uma nova bolha com uma
+                  operação matemática será gerada. O jogo continua até que você
+                  perca todas as vidas.
+                </p>
+              </li>
+              <li>
+                <strong>Fim do Jogo:</strong>
+                <p>
+                  Se suas vidas chegam a zero, uma mensagem de "GAME OVER" será
+                  exibida. Você pode reiniciar o jogo clicando novamente no
+                  botão "Start".
+                </p>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      
+      <div class="modal" id="gameover-modal">
+        <div class="modal-content">
+          <h2>Game Over</h2>
+    <p>Você perdeu todas as vidas!</p>
+    <p>Mais conseguiu acertas o resultado de <span id="final-score">0</span> operações.</p>
+    <button id="restart">Jogar Novamente</button>
+
+    </div>
+
+    <script type="module" src="js/engine.js" defer></script>
+  </body>
+</html>
