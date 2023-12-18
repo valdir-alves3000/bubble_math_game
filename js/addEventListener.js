@@ -101,7 +101,7 @@ export class AddEventListener {
 
     if (body.offsetWidth <= 767) {
       this.#gameState.gameView.userResponse.addEventListener("focus", () =>
-        this.blur()
+        this.#gameState.gameView.userResponse.blur()
       );
     }
   }
