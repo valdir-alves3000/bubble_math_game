@@ -18,7 +18,6 @@ export class AddEventListener {
     this.#setupSpeedSlider();
     this.#setupAboutButton();
     this.#setupRestartButton();
-    this.#setupBlurInputFocus();
   }
 
   #setupStartButton() {
@@ -94,15 +93,5 @@ export class AddEventListener {
         acordeon.classList.add("open");
       }
     });
-  }
-
-  #setupBlurInputFocus() {
-    const body = document.querySelector("body");
-
-    if (body.offsetWidth <= 767) {
-      this.#gameState.gameView.userResponse.addEventListener("focus", () =>
-        this.blur()
-      );
-    }
   }
 }

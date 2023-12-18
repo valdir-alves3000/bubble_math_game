@@ -4,32 +4,35 @@
     --end-positionY: 100%;
   }
   .menu {
-    height: 200px;
+    height: 100px;
     position: relative;
     justify-content: space-between;
-    padding: 1.5rem;
+    padding: 0 1rem;
   }
 
   .menu .logo {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+    display: none;
   }
 
-  .menu .logo h2 {
-    font-size: 1.2rem;
-    text-align: center;
+  .menu h2 {
+    font-size: 1rem;
   }
 
   .menu-lives {
-    width: 200px;
+    width: 160px;
+  }
+
+  .menu-lives img {
+    width: 25px;
   }
 
   .game {
+    position: relative;
+    top: -15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 0 5px;
   }
 
   #game-screen {
@@ -38,9 +41,13 @@
     overflow: hidden;
   }
 
+  #game-screen::before {
+    top: 15px;
+  }
+
   #game-screen .bubble img {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
   }
 
   #user-input {
@@ -50,11 +57,21 @@
   }
 
   #user-input h2 {
-    font-size: 1rem;
+    display: none;
+  }
+
+  #user-input #answer {
+    height: 40px;
   }
 
   #user-input label,
   #user-input .speed-slider {
     display: none;
+  }
+
+  .key,
+  .enter,
+  .clean {
+    padding: 7px;
   }
 }
