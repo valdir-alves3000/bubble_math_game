@@ -1,4 +1,4 @@
-import { AddEventListener } from "./AddEventListener.js";
+import { AddEventListener } from "./addEventListener.js";
 import { createStars } from "./createStars.js";
 
 const addEventListener = new AddEventListener();
